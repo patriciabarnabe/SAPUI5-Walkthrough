@@ -1,0 +1,15 @@
+node_modules/
+.idea/
+.mta/
+*.mtar
+dist/
+mta_archives/
+deployer/resources/
+Makefile*
+mta-*
+.vscode
+coverage/
+es-lint-report.json
+test-results/
+TESTS-*.xml
+approuter/

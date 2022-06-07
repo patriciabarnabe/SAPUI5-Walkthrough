@@ -1,0 +1,92 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+      "id": "aurora.fiori.app",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "applicationVersion": {
+        "version": "1.0.0"
+      },
+      "title": "{{appTitle}}",
+      "description": "{{appDescription}}",
+      "dataSources": {
+        "ciapAssetWriteoff": {
+          "uri": "https://abi-apim-internal.ab-inbev.com/tax_s4_ciap_asset_write_off/", 
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0",
+            "localUri": "localService/metadata.xml"
+          }
+        },
+        "constants": {
+          "uri": "/",
+          "type": "JSON",
+          "settings": {
+            "localUri": "utils/consts.json"
+          }
+        }
+      }
+    },
+    "sap.ui": {
+      "technology": "UI5",
+      "deviceTypes": {
+        "desktop": true,
+        "tablet": true,
+        "phone": true
+      }
+    },
+    "sap.ui5": {
+      "rootView": {
+        "viewName": "aurora.fiori.app.view.MainView",
+        "type": "XML",
+        "async": true,
+        "id": "idAppControl"
+      },
+      "dependencies": {
+        "minUI5Version": "1.84.0",
+        "libs": {
+          "sap.ui.core": {},
+          "sap.m": {},
+          "sap.ui.layout": {},
+          "sap.f": {}
+        }
+      },
+      "contentDensities": {
+        "compact": true,
+        "cozy": true
+      },
+      "models": {
+        "i18n": {
+          "type": "sap.ui.model.resource.ResourceModel",
+          "settings": {
+            "bundleName": "aurora.fiori.app.i18n.i18n"
+          }
+        },
+        "constants": {
+          "dataSource": "constants",
+          "settings": {
+            "bundleName": "aurora.fiori.app.constants"
+          }
+        }
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "viewPath": "aurora.fiori.app.view",
+          "controlId": "idAppControl",
+          "controlAggregation": "pages",
+          "async": true
+        },
+        "routes": [],
+        "targets": {}
+      }
+    }
+  }
